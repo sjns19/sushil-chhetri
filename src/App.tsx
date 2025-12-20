@@ -5,7 +5,7 @@ import { Home, About, Works, Services, NotFound } from './components/PageSection
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/sushil-chhetri/'}>
       <Routes>
         <Route path="/" index element={<MainPage />} />
         <Route path="*" element={<NotFound />} />
