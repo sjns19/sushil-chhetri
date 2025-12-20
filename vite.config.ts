@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './sushil-chhetri',
+  base: './sushil-chhetri/',
   build: {
     outDir: 'docs' // Change 'build' to your desired folder name
   },
