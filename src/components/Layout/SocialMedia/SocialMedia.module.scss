@@ -1,0 +1,52 @@
+.social-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+    &-item {
+        padding: 0.25rem;
+    }
+
+    &-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        color: vars.$color-white;
+        text-decoration: none;
+        padding: 0.25rem;
+        opacity: 0.3;
+        transition: opacity vars.$transition-duration;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2rem;
+            transition: transform vars.$transition-duration;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            background-color: vars.$color-white;
+            height: 1px;
+            width: 20px;
+            left: 2.25rem;
+            transform-origin: left;
+            transform: scaleX(0.5);
+            transition: transform vars.$transition-duration;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            span {
+                transform: translateX(14px);
+            }
+
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+}

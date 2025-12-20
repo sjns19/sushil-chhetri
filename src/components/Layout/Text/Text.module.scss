@@ -1,0 +1,76 @@
+.txt {
+
+	// colors
+	&-accent {
+		color: vars.$color-accent;
+	}
+
+	&-accent-light {
+		color: vars.$color-accent-light;
+	}
+
+	&-grey-100 {
+		color: vars.$color-grey-100;
+	}
+
+	&-grey-200 {
+		color: vars.$color-grey-200;
+	}
+
+	&-grey-300 {
+		color: vars.$color-grey-300;
+	}
+
+	&-grey-400 {
+		color: vars.$color-grey-400;
+	}
+
+	&-grey-500 {
+		color: vars.$color-grey-500;
+	}
+
+	// sizes
+	&-xs {
+		font-size: 0.75rem;
+	}
+
+	&-sm {
+		font-size: 0.85rem;
+	}
+
+	&-md {
+		font-size: 1.25rem;
+	}
+
+	&-lg {
+		@include mixins.font(2.35rem, $line-height: 1.65);
+	}
+
+	&-xl {
+		@include mixins.font(3rem, $line-height: 1.65);
+	}
+
+	// weight
+
+	&-light {
+		font-weight: 100;
+	}
+
+	&-medium {
+		font-weight: 500;
+	}
+
+	&-bold {
+		font-weight: 700;
+	}
+
+	// casing
+	&-uppercase {
+		text-transform: uppercase;
+	}
+
+	// alignment
+	&-center {
+		text-align: center !important;
+	}
+}

@@ -1,0 +1,206 @@
+.section {
+    $this: &;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 3rem;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: vars.$color-primary;
+        display: none;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        opacity: 1;
+    }
+
+    &-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        &-vert {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &-content {
+        flex: 0 0 45%;
+
+        &:not([data-already-visible="true"]) {
+            opacity: 0;
+        }
+
+        &-semi {
+            width: 70%;
+        }
+    }
+
+    &-dark {
+        background-color: vars.$color-primary;
+        color: vars.$color-white;
+    }
+
+    &-light {
+        background: vars.$color-white url('/images/wall-bg.png?4') no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &:global(#home) {
+        background: vars.$color-primary url('/images/hero-banner.png?9d') no-repeat;
+        background-size: cover;
+        background-position: 60% center;
+        height: 100vh;
+
+        &[data-revealed="true"] {
+            &::before {
+                animation: reveal-hero vars.$transition-duration + 3 1.3s forwards;
+            }
+
+            & #{$this}-content {
+                animation: fade-up 2s 0.5s forwards;
+            }
+        }
+
+        &::before {
+            display: block;
+        }
+
+        & #{$this} {
+
+            &-inner {
+                justify-content: flex-start;
+            }
+
+            &-content {
+                flex: initial;
+                padding-left: 1rem;
+            }
+        }
+
+        figure {
+            position: relative;
+
+            img {
+                height: 100%;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                background: linear-gradient(180deg, rgba(vars.$color-primary, 1) 20%, rgba(vars.$color-primary, 0.6) 40%, rgba(vars.$color-primary, 1) 80%);
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                right: 0;
+                opacity: 1;
+            }
+        }
+    }
+
+    &:global(#about) {
+        & #{$this} {
+
+            &-content:nth-child(2) {
+                opacity: 0;
+            }
+        }
+
+        // Animation
+        &[data-revealed="true"] #{$this}-content {
+            animation: fade-up 0.8s forwards;
+
+            figure::before {
+                animation: backdrop-reveal 0.8s 1s forwards;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+        }
+
+
+        figure {
+            position: relative;
+            height: 500px;
+            transition: opacity vars.$transition-duration, transform vars.$transition-duration;
+
+            img {
+                position: relative;
+                z-index: 1;
+                height: 100%;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                background-color: vars.$color-accent;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                z-index: 0;
+            }
+        }
+
+        @include mixins.break-max(vars.$breakpoint-lg) {
+            figure {
+                height: 100%;
+            }
+
+            & #{$this} {
+
+                &-inner {
+                    flex-flow: column-reverse;
+                    align-items: center;
+                }
+
+                &-content {
+                    padding: 2rem;
+                }
+            }
+        }
+    }
+
+    &:global(#works)[data-revealed="true"] #{$this}-content {
+        animation: fade-up 0.8s forwards;
+
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    }
+
+    &:global(#services) {
+        background: vars.$color-primary url('/images/nikon.png') no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        &::before {
+            display: block;
+            opacity: 0.9;
+        }
+
+        &[data-revealed="true"] #{$this}-content {
+            animation: fade-up 0.8s forwards;
+
+
+            &:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.image {
+    $this: &;
+
+    display: block;
+
+    &-zoominate {
+        overflow: hidden;
+        cursor: pointer;
+
+        #{$this}-img {
+            transition: transform vars.$transition-duration, opacity vars.$transition-duration;
+        }
+
+        &:hover #{$this}-img {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+    }
+
+    &-img {
+        display: block;
+        height: auto;
+        width: 100%;
+
+        &-cover {
+            object-fit: cover;
+        }
+
+        &-contain {
+            object-fit: contain;
+        }
+    }
+}

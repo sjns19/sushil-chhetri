@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Instagram",
+        "title": "Follow me on Instagram",
+        "link": "https://www.instagram.com/sushil.chhetri.photography/"
+    },
+    {
+        "name": "YouTube",
+        "title": "Check out my YouTube channel",
+        "link": "https://www.youtube.com/@SushilMacro"
+    },
+    {
+        "name": "Email",
+        "title": "Want to stay in touch? Send me an email",
+        "link": "mailto:schhetri814@gmail.com"
+    },
+    {
+        "name": "Phone",
+        "title": "Want to talk? Give me a call",
+        "link": "tel:+977 9841205587"
+    }
+]

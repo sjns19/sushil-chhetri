@@ -1,0 +1,37 @@
+{
+    "activeGalleryCategory": "landscape",
+    "activeGallerySlideIndex": -1,
+    "gallerySlides": [],
+    "galleryData": {
+        "landscape": {
+            "title": "Landscape",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
+        },
+        "fashion-and-editorial": {
+            "title": "Fashion & Editorial",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
+        },
+        "advertising": {
+            "title": "Advertising",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
+        },
+        "macro": {
+            "title": "Macro",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
+        },
+        "tvcs": {
+            "title": "TVCs",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: vars.$wrapper-width;
+
+    @include mixins.break-max(vars.$breakpoint-lg) {
+        max-width: vars.$wrapper-width - 350px;
+    }
+}

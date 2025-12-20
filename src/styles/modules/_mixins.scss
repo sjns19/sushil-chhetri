@@ -1,0 +1,41 @@
+@mixin font($size: false, $weight: false, $family: false, $decoration: false, $line-height: false, $spacing: false, $kering: false) {
+	@if $size {
+		font-size: $size;
+	}
+
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $family {
+		font-family: $family;
+	}
+
+	@if $decoration {
+		text-decoration: $decoration
+	}
+
+	@if $line-height {
+		line-height: $line-height;
+	}
+
+	@if $spacing {
+		letter-spacing: $spacing;
+	}
+
+	@if $kering {
+		font-kerning: $kering;
+	}
+}
+
+@mixin break-max($size) {
+	@media only screen and (max-width: $size) {
+		@content;
+	}
+}
+
+@mixin break-min($size) {
+	@media only screen and (min-width: $size) {
+		@content;
+	}
+}

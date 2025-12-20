@@ -1,0 +1,52 @@
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: center;
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes reveal-hero {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0.65;
+	}
+}
+
+@keyframes fade-up {
+	0% {
+		opacity: 0;
+		transform: translateY(120px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: trnaslateY(0);
+	}
+}
+
+@keyframes backdrop-reveal {
+	from {
+		transform: translate(0, 0);
+	}
+
+	to {
+		transform: translate(-2rem, 2rem);
+	}
+}

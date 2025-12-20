@@ -1,0 +1,70 @@
+/** 
+  * Overriding styles for the .section class based on page ids
+  *
+  * Because, different pages have different types of layout using
+  * this same class
+  */
+
+
+/*
+// About page
+:global(#page-about) {
+    .section-content {
+        @include mixins.flex($justify: space-between);
+        margin-top: 1.75rem;
+
+        &>div {
+
+            // Left side introduction section
+            &:nth-child(1) {
+                margin-right: 8%;
+            }
+
+            // Right side section, hobbies, technologies etc...
+            &:nth-child(2) {
+                position: sticky;
+                position: -webkit-sticky;
+                flex: 0 0 31.2%;
+                top: 3rem;
+                height: 100%;
+
+                &>div:nth-child(2),
+                &>div:nth-child(3) {
+                    padding-top: 15%;
+                }
+            }
+        }
+
+        // Change direction on tablet and mobile view
+        @include breakpoint(tablet) {
+            flex-direction: column;
+
+            &>div {
+                &:nth-child(1) {
+                    flex-basis: initial;
+                    margin-right: 0;
+                }
+
+                &:nth-child(2) {
+                    width: $--breakpoint-small;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// Blogs and projects
+:global(#page-blogs),
+:global(#page-projects) {
+    .section-content {
+        margin-top: 1.75rem;
+    }
+}
+
+// 404 page
+:global(#page-404) {
+    &.section {
+        width: 60%;
+    }
+}*/
