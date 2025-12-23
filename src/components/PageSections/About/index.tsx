@@ -1,18 +1,16 @@
 import { Section, Image, Text, Button } from '../../Layout';
 
-export default function About() {
-    const scrollToWorks = () => {
-        window.scrollTo({
-            top: document.getElementById('works')?.offsetTop
-        })
-    };
+import useSection from '../../../hooks/useNavbar';
+import AboutImage from '../../../assets/images/sushil-chhetri.png';
 
+export default function About() {
+    const { scrollToSection } = useSection();
     return (
         <Section id="about">
             <Section.Content>
                 <Image
                     wrapperElement="figure"
-                    src="/images/sushil-chhetri.png?1"
+                    src={AboutImage}
                     fit="cover"
                     alt="Sushil Chhetri"
                 />
@@ -38,7 +36,7 @@ export default function About() {
                     size="xl"
                     className="mt-3"
                     title="See my work"
-                    onClick={scrollToWorks}
+                    onClick={scrollToSection('works')}
                 >See my work</Button>
             </Section.Content>
         </Section>

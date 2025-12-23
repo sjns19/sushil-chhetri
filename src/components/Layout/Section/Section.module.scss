@@ -48,13 +48,13 @@
     }
 
     &-light {
-        background: vars.$color-white url('/images/wall-bg.png?4') no-repeat;
+        background: vars.$color-white url('../../../assets/images/wall-bg.png') no-repeat;
         background-position: center;
         background-size: cover;
     }
 
     &:global(#home) {
-        background: vars.$color-primary url('/images/hero-banner.png?9d') no-repeat;
+        background: vars.$color-primary url('../../../assets/images/hero-banner.png') no-repeat;
         background-size: cover;
         background-position: 60% center;
         height: 100vh;
@@ -181,7 +181,7 @@
     }
 
     &:global(#services) {
-        background: vars.$color-primary url('/images/nikon.png') no-repeat;
+        background: vars.$color-primary url('../../../assets/images/nikon.png') no-repeat;
         background-size: contain;
         background-position: center;
 

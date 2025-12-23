@@ -8,7 +8,11 @@ export default function App() {
     <BrowserRouter basename={import.meta.env.DEV ? '/' : '/sushil-chhetri/'}>
       <Routes>
         <Route path="/" index element={<MainPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={(
+          <Main>
+            <NotFound />
+          </Main>
+        )} />
       </Routes>
     </BrowserRouter>
   );

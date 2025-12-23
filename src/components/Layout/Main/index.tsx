@@ -1,12 +1,15 @@
 
 import type { MainProps } from './types';
 
+import { forwardRef } from 'react';
 import css from './Main.module.scss';
 
-export default function Main({ children }: MainProps) {
+const Main: MainProps = ({ children }, ref) => {
     return (
-        <main className={css['main']}>
+        <main className={css['main']} ref={ref}>
             {children}
         </main>
     );
-}
+};
+
+export default forwardRef(Main);

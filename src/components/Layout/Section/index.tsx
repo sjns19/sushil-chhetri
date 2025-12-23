@@ -1,17 +1,18 @@
 import type { SectionProps, SectionContentProps } from './types';
 
 import css from './Section.module.scss';
+import { forwardRef } from 'react';
 import { createClassList } from '../../../utils';
 import { Wrapper } from '../';
 
-export default function Section({
+const SectionElement: SectionProps = ({
     className,
     isVertical,
     hasRevealed,
     variant,
     children,
     ...rest
-}: SectionProps) {
+}, ref) => {
     const sectionClassList = createClassList({
         [css['section']]: true,
         [css[`section-${variant}`]]: variant,
@@ -24,7 +25,7 @@ export default function Section({
     });
 
     return (
-        <section className={sectionClassList} {...rest} {...(hasRevealed ? { 'data-revealed': true } : {})}>
+        <section className={sectionClassList} ref={ref} {...rest} {...(hasRevealed ? { 'data-revealed': true } : {})}>
             <Wrapper>
                 <div className={sectionInnerClassList}>
                     {children}
@@ -32,9 +33,9 @@ export default function Section({
             </Wrapper>
         </section>
     );
-}
+};
 
-Section.Content = ({ isSemi, className, children, ...rest }: SectionContentProps) => {
+const SectionContent = ({ isSemi, className, children, ...rest }: SectionContentProps) => {
     const classList = createClassList({
         [css['section-content']]: true,
         [css['section-content-semi']]: isSemi,
@@ -46,3 +47,9 @@ Section.Content = ({ isSemi, className, children, ...rest }: SectionContentProps
         </div>
     )
 };
+
+const Section = Object.assign(forwardRef(SectionElement), {
+    Content: SectionContent
+});
+
+export default Section;

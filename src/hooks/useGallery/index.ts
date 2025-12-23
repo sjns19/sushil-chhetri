@@ -40,7 +40,8 @@ export default function useGallery() {
         if (!galleryData || !category)
             return;
 
-        const { data, error, status } = await ajax<GalleryImages[] & Dictionary<string[]>>('/data/' + category.toLowerCase() + '.json');
+        const endpointBase = import.meta.env.DEV ? '/' : '/sushil-chhetri/'
+        const { data, error, status } = await ajax<GalleryImages[] & Dictionary<string[]>>(endpointBase + 'data/' + category.toLowerCase() + '.json');
 
         dispatch({
             type: GALLERY_ACTIONS.SET_GALLERY_DATA,
