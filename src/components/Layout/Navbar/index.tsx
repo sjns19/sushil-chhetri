@@ -17,7 +17,7 @@ export default function Navbar() {
 	return (
 		<nav className={css['navbar']}>
 			<div className={css['navbar-inner']}>
-				<a href="/" className={css['navbar-brand']} title="Sushil Chhetri">
+				<a href={import.meta.env.DEV ? '/' : '/sushil-chhetri'} className={css['navbar-brand']} title="Sushil Chhetri">
 					<img className={css['navbar-logo']} src={Logo} />
 				</a>
 				<ul className={css['navbar-nav']}>
