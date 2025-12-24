@@ -40,8 +40,9 @@ export default function useGallery() {
         if (!galleryData || !category)
             return;
 
-        const endpointBase = import.meta.env.DEV ? '/' : '/sushil-chhetri/'
-        const { data, error, status } = await ajax<GalleryImages[] & Dictionary<string[]>>(endpointBase + 'data/' + category.toLowerCase() + '.json');
+        const
+            endpointBase = import.meta.env.DEV ? '/' : '/sushil-chhetri/',
+            { data, error, status } = await ajax<GalleryImages[] & Dictionary<string[]>>(endpointBase + 'data/' + category.toLowerCase() + '.json');
 
         dispatch({
             type: GALLERY_ACTIONS.SET_GALLERY_DATA,
@@ -59,13 +60,13 @@ export default function useGallery() {
     }
 
     const loadImages = (elem: HTMLImageElement) => {
-        if (elem) {
-            const src = elem.getAttribute('data-src');
+        if (!elem)
+            return;
 
-            if (src) {
-                elem.src = src;
-            }
-        }
+        const src = elem.getAttribute('data-src');
+
+        if (src)
+            elem.src = src;
     }
 
     const setActiveSlideIndex = (index: number) => {

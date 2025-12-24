@@ -152,24 +152,6 @@
                 z-index: 0;
             }
         }
-
-        @include mixins.break-max(vars.$breakpoint-lg) {
-            figure {
-                height: 100%;
-            }
-
-            & #{$this} {
-
-                &-inner {
-                    flex-flow: column-reverse;
-                    align-items: center;
-                }
-
-                &-content {
-                    padding: 2rem;
-                }
-            }
-        }
     }
 
     &:global(#works)[data-revealed="true"] #{$this}-content {
@@ -200,6 +182,57 @@
 
             &:nth-child(3) {
                 animation-delay: 0.4s;
+            }
+        }
+    }
+
+    @include mixins.break-max(vars.$breakpoint-lg) {
+        &:global(#home) {
+            background-size: 760px 560px;
+            background-position: 80% center;
+        }
+
+        &:global(#about) {
+            figure {
+                height: 100%;
+            }
+
+            & #{$this} {
+
+                &-inner {
+                    flex-flow: column-reverse;
+                    align-items: center;
+                }
+
+                &-content {
+                    padding: 2rem;
+                }
+            }
+
+        }
+    }
+
+    @include mixins.break-max(vars.$breakpoint-tablet) {
+        &:global(#home) {
+            background-position: 90% 0%;
+        }
+    }
+
+    @include mixins.break-max(vars.$breakpoint-mobile) {
+        padding: 8rem 1rem;
+
+        &-content-semi {
+            width: initial;
+        }
+
+        &:global(#home) {
+            background-size: 760px 570px;
+            background-position: 90% 0%;
+            align-items: flex-end;
+
+
+            & #{$this}-inner {
+                padding-bottom: 20%;
             }
         }
     }

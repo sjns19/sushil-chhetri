@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import htmlMinifier from 'vite-plugin-html-minifier';
 import path from 'path'
 
 // https://vite.dev/config/
@@ -15,6 +16,9 @@ export default defineConfig(({ mode }) => {
           plugins: [['babel-plugin-react-compiler']],
         },
       }),
+      htmlMinifier({
+        minify: true
+      })
     ],
     css: {
       modules: {

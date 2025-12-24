@@ -24,10 +24,23 @@ html {
 	text-rendering: optimizeLegibility;
 	line-height: 1.55;
 	letter-spacing: 0.15px;
+	min-width: 362px;
+
+	@include mixins.break-max(vars.$breakpoint-lg) {
+		font-size: 10px;
+	}
+
+	@include mixins.break-max(vars.$breakpoint-tablet) {
+		font-size: 14px;
+	}
 }
 
 body {
 	margin: 0;
+}
+
+main {
+	width: 100%;
 }
 
 /* Margins */

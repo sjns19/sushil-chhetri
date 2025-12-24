@@ -1,7 +1,8 @@
 import type ButtonProps from './types';
 
-import { Link } from 'react-router';
 import css from './Button.module.scss';
+
+import { Link } from 'react-router';
 import { createClassList } from '../../../utils';
 
 export default function Button({

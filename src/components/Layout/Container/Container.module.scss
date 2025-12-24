@@ -7,4 +7,8 @@
     &-inner {
         width: 100%;
     }
+
+    @include mixins.break-max(vars.$breakpoint-tablet) {
+        flex-direction: column;
+    }
 }

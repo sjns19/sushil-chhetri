@@ -1,8 +1,8 @@
 import type { ImageProps } from './types';
 
-import { forwardRef } from 'react';
-
 import css from './Image.module.scss';
+
+import { forwardRef } from 'react';
 import { createClassList } from '../../../utils';
 
 const Image = forwardRef<HTMLImageElement, ImageProps>(({

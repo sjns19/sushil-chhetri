@@ -1,16 +1,21 @@
 import type { SocialMediaProps } from './types';
 
-import { FaInstagram, FaYoutube, FaEnvelope, FaMobileAlt } from 'react-icons/fa';
-
 import css from './SocialMedia.module.scss';
 import socialMediaLinks from '../../../static/social-media.json';
 
+import {
+    InstagramIcon,
+    YouTubeIcon,
+    EmailIcon,
+    MobileIcon
+} from '../../Icons';
+
 export default function SocialMedia({ }: SocialMediaProps) {
     const icons = {
-        Email: <FaEnvelope size={18} />,
-        Instagram: <FaInstagram size={18} />,
-        YouTube: <FaYoutube size={18} />,
-        Phone: <FaMobileAlt size={18} />
+        Email: <EmailIcon size={18} />,
+        Instagram: <InstagramIcon size={18} />,
+        YouTube: <YouTubeIcon size={18} />,
+        Phone: <MobileIcon size={18} />
     };
 
     return (

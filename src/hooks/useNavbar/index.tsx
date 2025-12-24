@@ -3,15 +3,18 @@ import { ucfirst } from '../../utils';
 
 export default function useNavbar() {
     const [activeSectionName, setActiveSectionName] = useState('');
+    const [isNavbarActive, setIsNavbarActive] = useState(false);
+
+    const toggleNavbar = () => setIsNavbarActive((state) => !state);
 
     useEffect(() => {
         setActiveSectionName('home');
 
-        const sections = document.querySelectorAll('section');
-
         let
             scrollCallback = null,
             currentSectionName = '';
+
+        const sections = document.querySelectorAll('section');
 
         const setActiveSection = (element?: Element) => {
             if (!element)
@@ -23,9 +26,8 @@ export default function useNavbar() {
 
             setActiveSectionName(sectionName);
 
-            if (!isRevealed) {
+            if (!isRevealed)
                 element.setAttribute('data-revealed', 'true');
-            }
 
             document.title = sectionName === 'home' ? 'Sushil Chhetri' : 'Sushil Chhetri - ' + ucfirst(sectionName);
         };
@@ -33,9 +35,8 @@ export default function useNavbar() {
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((element) => {
-                    if (element.isIntersecting && activeSectionName !== element.target.id) {
+                    if (element.isIntersecting && activeSectionName !== element.target.id)
                         setActiveSection(element.target);
-                    }
                 });
             }, {
                 rootMargin: '-50% 0% -50% 0%'
@@ -86,6 +87,9 @@ export default function useNavbar() {
     }, []);
 
     const scrollToSection = (id: string) => () => {
+        if (isNavbarActive)
+            toggleNavbar();
+
         window.scrollTo({
             top: document.getElementById(id)?.offsetTop
         })
@@ -93,6 +97,8 @@ export default function useNavbar() {
 
     return {
         activeSectionName,
+        isNavbarActive,
+        toggleNavbar,
         scrollToSection
     }
 }

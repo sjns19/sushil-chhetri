@@ -11,22 +11,23 @@
 		position: -webkit-sticky;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		align-items: center;
 		height: 100vh;
 		width: 100%;
-		padding: 0 10%;
 		top: 0;
 		animation: fade-in vars.$transition-duration + 5 forwards;
 	}
 
-	&-brand {
+	&-content {
 		display: block;
 		text-decoration: none;
-		opacity: 0.5;
-		transition: opacity vars.$transition-duration;
+		flex-basis: 50%;
 
-		&:hover {
-			opacity: 1;
+		&-main {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			flex-basis: 100%;
 		}
 	}
 
@@ -36,6 +37,16 @@
 		width: 100%;
 		object-position: left;
 		object-fit: contain;
+		opacity: 0.5;
+		transition: opacity vars.$transition-duration;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&-toggler {
+		display: none;
 	}
 
 	&-nav {
@@ -85,6 +96,79 @@
 					transform: scaleX(1);
 				}
 			}
+		}
+	}
+
+	@include mixins.break-max(vars.$breakpoint-tablet) {
+		background-color: vars.$color-primary;
+		position: sticky;
+		position: -webkit-sticky;
+		width: 100%;
+		top: 0;
+
+		&#{$this}-active #{$this} {
+			&-content-main {
+				transform: translateX(-100%);
+			}
+
+			&-toggler-main::before {
+				opacity: 0.5;
+				pointer-events: all;
+			}
+		}
+
+		&-inner {
+			position: initial;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			height: initial;
+			width: 100%;
+		}
+
+		&-toggler {
+			position: relative;
+			display: flex;
+			flex: initial;
+			background-color: transparent;
+			color: vars.$color-white;
+			padding: 0.75rem;
+			margin-right: 1rem;
+			border: none;
+			outline: none;
+			cursor: pointer;
+
+			&#{$this}-toggler-main::before {
+				position: fixed;
+				content: '';
+				background-color: vars.$color-black;
+				height: 100%;
+				width: 100%;
+				opacity: 0;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				pointer-events: none;
+				transition: opacity vars.$transition-duration;
+			}
+		}
+
+		&-content-main {
+			position: fixed;
+			background-color: vars.$color-accent-dark;
+			padding: 1rem 1.75rem;
+			margin-right: -210px;
+			height: 100%;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			transition: transform vars.$transition-duration;
+			transform: translateX(100%);
+		}
+
+		&-nav {
+			justify-content: center;
+			flex: 1;
 		}
 	}
 }

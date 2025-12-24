@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
-import { Container, Main, Navbar, Footer } from './components/Layout';
+import { Container, Navbar, Footer } from './components/Layout';
 import { Home, About, Works, Services, NotFound } from './components/PageSections';
 
 export default function App() {
@@ -9,9 +9,9 @@ export default function App() {
       <Routes>
         <Route path="/" index element={<MainPage />} />
         <Route path="*" element={(
-          <Main>
+          <main>
             <NotFound />
-          </Main>
+          </main>
         )} />
       </Routes>
     </BrowserRouter>
@@ -19,18 +19,16 @@ export default function App() {
 }
 
 const MainPage = () => (
-  <>
-    <Container>
-      <Navbar />
-      <Container.Inner>
-        <Main>
-          <Home />
-          <About />
-          <Works />
-          <Services />
-        </Main>
-        <Footer />
-      </Container.Inner>
-    </Container>
-  </>
+  <Container>
+    <Navbar />
+    <Container.Inner>
+      <main>
+        <Home />
+        <About />
+        <Works />
+        <Services />
+      </main>
+      <Footer />
+    </Container.Inner>
+  </Container>
 );
