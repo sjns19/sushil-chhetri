@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: mode === 'production' ? '/sushil-chhetri/' : '/',
     build: {
-      outDir: 'docs' // Change 'build' to your desired folder name
+      outDir: 'docs'
     },
     plugins: [
       react({
@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
     ],
     css: {
       modules: {
-        //generateScopedName: '[hash:base64:5]',
+        generateScopedName: mode === 'production' ? '[hash:base64:5]' : undefined,
       },
       preprocessorOptions: {
         scss: {

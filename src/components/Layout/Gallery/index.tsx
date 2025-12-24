@@ -138,8 +138,8 @@ const GalleryTabData = ({ type, category, loadImages, setActiveSlideIndex, data 
             items={galleryData as GalleryImages[]}
             className="pt-2"
             config={{
-                columns: [1, 2, 3],
-                gap: [16, 8, 8],
+                columns: [2, 2, 3],
+                gap: [8, 8, 8],
                 media: [640, 980, 1080],
             }}
             render={({ src, id }) => (
