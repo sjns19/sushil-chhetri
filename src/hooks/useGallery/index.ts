@@ -9,7 +9,7 @@ export default function useGallery() {
     const [state, dispatch] = useReducer(galleryReducer, initialStates);
 
     useEffect(() => {
-        fetchGalleryData('macro');
+        fetchGalleryData(state.activeGalleryCategory);
     }, []);
 
     const updateGalleryTab = (e: React.MouseEvent<HTMLButtonElement>) => {
