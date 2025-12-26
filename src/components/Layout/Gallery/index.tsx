@@ -141,6 +141,11 @@ const GalleryTabData = ({ type, category, loadImages, setActiveSlideIndex, data 
                 columns: [2, 2, 3],
                 gap: [8, 8, 8],
                 media: [640, 980, 1080],
+                /**
+                 * For some reason, the advertising section's masonry grid layout is kind of
+                 * messed up. Enforce balance for this section
+                 */
+                useBalancedLayout: category === 'Advertising'
             }}
             render={({ src, id }) => (
                 <Image

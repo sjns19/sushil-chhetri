@@ -16,7 +16,6 @@
 	letter-spacing: 2px;
 	white-space: nowrap;
 	z-index: 1;
-	overflow: hidden;
 
 	&::before,
 	&::after {
@@ -27,17 +26,18 @@
 		width: 100%;
 		left: 0;
 		z-index: -1;
+		transform: scaleY(0);
 		transition: transform vars.$transition-duration;
 	}
 
 	&::before {
 		top: 0;
-		transform: translateY(-100%);
+		transform-origin: top;
 	}
 
 	&::after {
 		bottom: 0;
-		transform: translateY(100%);
+		transform-origin: bottom;
 	}
 
 	&:not(:disabled) {
@@ -48,7 +48,7 @@
 
 			&::before,
 			&::after {
-				transform: translateY(0);
+				transform: scaleY(1);
 			}
 		}
 	}
@@ -111,7 +111,6 @@
 	// btn-lg
 	&-lg {
 		padding: 0.8rem 1.25rem;
-		font-size: 1rem;
 	}
 
 	// btn-xl
