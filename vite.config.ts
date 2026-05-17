@@ -6,7 +6,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    base: mode === 'production' ? '/sushil-chhetri/' : '/',
+    base: '/',
     build: {
       outDir: 'docs'
     },
