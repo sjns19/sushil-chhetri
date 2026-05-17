@@ -1,9 +1,5 @@
 
-import type { Dictionary, GalleryImages } from '../../../types.g';
 import type ThumbnailProps from './types';
-
-
-import { createClassList } from '../../../utils';
 
 import css from './Thumbnail.module.scss';
 
