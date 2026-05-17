@@ -17,9 +17,11 @@ export type GalleryData = {
 
 export type GalleryImages = {
 	id: string,
-	size: string,
-	src: string,
-	thumb: string
+	url: string,
+	title: string,
+	name: string,
+	labels: string[],
+	src: string
 }
 
 // API response with data

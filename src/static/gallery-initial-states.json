@@ -32,6 +32,12 @@
             "hasError": false,
             "isDataLoading": true,
             "data": null
+        },
+        "products": {
+            "title": "Products",
+            "hasError": false,
+            "isDataLoading": true,
+            "data": null
         }
     }
 }

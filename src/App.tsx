@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 import { Container, Navbar, Footer } from './components/Layout';
-import { Home, About, Works, Services, NotFound } from './components/PageSections';
+import { Home, About, Works, Expertise, NotFound } from './components/PageSections';
 
 export default function App() {
   return (
@@ -26,7 +26,7 @@ const MainPage = () => (
         <Home />
         <About />
         <Works />
-        <Services />
+        <Expertise />
       </main>
       <Footer />
     </Container.Inner>

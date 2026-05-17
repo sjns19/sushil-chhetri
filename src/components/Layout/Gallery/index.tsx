@@ -13,7 +13,7 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
 import css from './Gallery.module.scss';
 
-import { Button, Flex, Text, Image, Spinner } from '../';
+import { Button, Flex, Text, Image, Thumbnail, Spinner } from '../';
 
 import { FaExclamationCircle as ErrorIcon } from 'react-icons/fa';
 
@@ -67,7 +67,7 @@ export default function Gallery() {
                 {Object.entries(galleryData).map(([category, data], idx) => category !== 'tvcs' ? (
                     <GalleryTab key={idx} isActive={category === activeGalleryCategory}>
                         <GalleryTabData
-                            type="images"
+                            type={category === "products" ? "links" : "images"}
                             loadImages={loadImages}
                             category={data.title}
                             setActiveSlideIndex={setActiveSlideIndex}
@@ -133,18 +133,28 @@ const GalleryTabData = ({ type, category, loadImages, setActiveSlideIndex, data 
         ));
     }
 
+    const gridSizes = {
+        images: {
+            columns: [2, 2, 3],
+            gap: [8, 8, 8],
+            media: [640, 980, 1080]
+        },
+        links: {
+            columns: [1, 1, 3],
+            gap: [18, 18, 8],
+            media: [640, 980, 1080]
+        }
+    };
+
     return (
         <Masonry
             items={galleryData as GalleryImages[]}
             className="pt-2"
-            config={{
-                columns: [2, 2, 3],
-                gap: [8, 8, 8],
-                media: [640, 980, 1080]
-            }}
-            render={({ src, id }) => (
+            config={gridSizes[type]}
+            render={({ src, id, name, title, url, labels }) => type === "images" ? (
                 <Image
                     key={id}
+                    wrapperElement="figure"
                     onClick={() => setActiveSlideIndex && setActiveSlideIndex(+id)}
                     data-src={src}
                     src="/images/placeholder.png"
@@ -154,6 +164,18 @@ const GalleryTabData = ({ type, category, loadImages, setActiveSlideIndex, data 
                     zoominate
                     referrerPolicy="no-referrer"
                 />
+            ) : (
+                <Thumbnail key={id} title={title} name={name} link={url} labels={labels}>
+                    <Image
+                        key={id}
+                        wrapperElement="figure"
+                        data-src={src}
+                        src="/images/placeholder.png"
+                        ref={loadImages}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                    />
+                </Thumbnail>
             )}
         />
     );

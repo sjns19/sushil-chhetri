@@ -9,7 +9,7 @@ export type GalleryVideoFrameProps = {
 }
 
 export type GalleryTabDataProps = {
-    type: 'videos' | 'images',
+    type: 'videos' | 'images' | "links",
     category?: string,
     loadImages?: (elem: HTMLImageElement) => void,
     setActiveSlideIndex?: (index: number) => void,

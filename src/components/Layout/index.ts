@@ -4,6 +4,7 @@ export { default as Flex } from './Flex';
 export { default as Footer } from './Footer';
 export { default as Gallery } from './Gallery';
 export { default as Image } from './Image';
+export { default as Thumbnail } from './Thumbnail';
 export { default as Navbar } from './Navbar';
 export { default as Section } from './Section';
 export { default as SocialMedia } from './SocialMedia';

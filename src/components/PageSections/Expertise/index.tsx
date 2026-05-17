@@ -1,11 +1,11 @@
 import { Section, Flex, Button, Text } from '../../Layout';
 
 import { FaEnvelope } from 'react-icons/fa';
-import servicesData from '../../../static/services.json';
+import servicesData from '../../../static/expertise.json';
 
 export default function Services() {
     return (
-        <Section id="services" variant="dark" isVertical>
+        <Section id="expertise" variant="dark" isVertical>
             <Section.Content className="my-1" isSemi>
                 <Text element="h2" size="xl" weight="light" color="accent-light" align="center">My Expertise</Text>
             </Section.Content>
