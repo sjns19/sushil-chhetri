@@ -5,7 +5,7 @@ import { Home, About, Works, Expertise, NotFound } from './components/PageSectio
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/sushil-chhetri/'}>
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" index element={<MainPage />} />
         <Route path="*" element={(
